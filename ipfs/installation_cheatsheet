@@ -1,0 +1,46 @@
+root@gengw ~ # useradd -m --home /pub/dldr/ipfs -G p2p ipfs
+
+go version # should be >= 1.5.3
+
+ipfs@gengw ~ $ grep GO ~/.bashrc
+export GOPATH=${HOME}/src/go
+export PATH=$PATH:$GOPATH/bin
+# ...
+
+echo $GOPATH
+mkdir -p $GOPATH
+
+go get github.com/whyrusleeping/gx # or just run make toolkit_upgrade after getting go-ipfs
+go get github.com/whyrusleeping/gx-go # or just run make toolkit_upgrade after getting go-ipfs
+
+go get -d github.com/ipfs/go-ipfs
+cd $GOPATH/src/github.com/ipfs/go-ipfs
+make toolkit_upgrade # or just simply ignore if gx and gx-go installed above
+make install
+
+go get -u github.com/ipfs/ipfs-update # just in case ;>
+
+history > ~/installation_cheatsheat
+
+# initialization and going online
+# https://ipfs.io/docs/getting-started/
+ipfs@gengw ~ $ ipfs init
+initializing ipfs node at /pub/dldr/ipfs/.ipfs
+generating 2048-bit RSA keypair...done
+peer identity: QmSUdLXvr9cJdJYe2zEriztty89NXvjsBEmSXmt5d72iBm
+to get started, enter:
+
+	ipfs cat /ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG/readme
+
+ipfs@gengw ~ $ ipfs cat /ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG/readme
+Hello and Welcome to IPFS!
+
+ipfs@gengw ~ $ ipfs daemon &
+...
+
+ipfs@gengw ~ $ ipfs swarm peers
+
+# then install init.d/ipfs-daemon to /etc/init.d and add it to default runlevel
+root@gengw ~ipfs # cp ipfs-daemon /etc/init.d/ && /etc/init.d/ipfs-daemon restart
+root@gengw ~ipfs # rc-update add ipfs-daemon default
+

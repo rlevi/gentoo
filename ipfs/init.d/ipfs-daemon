@@ -1,0 +1,23 @@
+#!/sbin/runscript
+
+depend() {
+  need net
+}
+
+start() {
+	ebegin "Starting IPFS daemon"
+	start-stop-daemon --start --background \
+		--pidfile /var/run/ipfs.pid --make-pidfile \
+		--exec /pub/dldr/ipfs/src/go/bin/ipfs \
+		--user ipfs \
+		-e HOME=/pub/dldr/ipfs -- daemon
+	eend $?
+}
+
+stop() {
+	start-stop-daemon --stop \
+		--pidfile /var/run/ipfs.pid \
+		--user ipfs \
+		--name ipfs
+	eend $?
+}
