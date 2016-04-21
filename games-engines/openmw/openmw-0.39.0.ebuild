@@ -1,6 +1,7 @@
 # Copyright 2015 Julian Ospald <hasufell@posteo.de>
 # Distributed under the terms of the GNU General Public License v2
-# openscenegraph usage patch by https://www.linux.org.ru/people/init_6/profile with minor changes
+# openscenegraph update by Andrey Ovcharov <sudormrfhalt@gmail.com>
+# minor changes and version bump by <rlevi@sdf.org>
 # $Id$
 
 EAPI=5
