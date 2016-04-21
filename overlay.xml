@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<layman>
+    <overlay
+				status = "unofficial"
+        type = "git"
+        src = "git://github.com/rlevi/gentoo.git"
+        name = "rlevi gentoo overlay"
+				contact = "rlevi@sdf.org">
+
+        <description>A bit updated unofficial ebuilds for misc stuff</description>
+
+				<link>https://github.com/rlevi</link>
+    </overlay>
+</layman>
+
