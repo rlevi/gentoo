@@ -4,7 +4,7 @@
 				status = "unofficial"
         type = "git"
         src = "git://github.com/rlevi/gentoo.git"
-        name = "rlevi gentoo overlay"
+        name = "unofficial-sszb"
 				contact = "rlevi@sdf.org">
 
         <description>A bit updated unofficial ebuilds for misc stuff</description>
