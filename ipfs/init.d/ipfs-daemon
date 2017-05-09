@@ -8,7 +8,7 @@ start() {
 	ebegin "Starting IPFS daemon"
 	start-stop-daemon --start --background \
 		--pidfile /var/run/ipfs.pid --make-pidfile \
-		--exec /pub/dldr/ipfs/src/go/bin/ipfs \
+		--exec /usr/bin/ipfs \
 		--user ipfs \
 		-e HOME=/pub/dldr/ipfs -- daemon
 	eend $?
